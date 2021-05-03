@@ -1,0 +1,143 @@
+package MotusPackage;
+
+public class mo{
+
+	public static void main(String[] args) 
+	{
+		String MotMotus, MotProp, J1, J2;
+		int Essai, L, Lbis, Coups, Cpt;
+		String Motus[] ; 
+		String	Prop[] ; 
+		String	Result[] ;
+		
+		//Saisie des prenoms
+		J1 = Saisie.lire_String("Veuillez saisir votre prénom (Joueur 1)");
+		J2 = Saisie.lire_String("Veuillez saisir votre prénom (Joueur 2)");
+		System.out.println();
+		
+		MotMotus = Saisie.lire_String(J1 + " quel est le mot à trouver ?");
+		L = MotMotus.length();
+		while (L <= 2)
+		{
+			MotMotus = Saisie.lire_String(J1+ ", saisi un mot strictement supérieur à deux caractères !");
+			L = MotMotus.length();
+		}
+		//PAS DE TRICHE
+		
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		System.out.println("------------PAS DE TRICHE !------------");
+		
+		
+		//Initialisation des tableaux
+		 Motus = new String [L];
+		 
+		 Prop = new String [L];
+		 
+		 Result = new String [L];
+		 
+		 //Préparation du jeu
+		Essai = L-2;
+		for ( Cpt = 0; Cpt < L ; Cpt++)
+		{
+			Motus[Cpt] = MotMotus.substring(Cpt, Cpt+1);
+		}
+		MotProp = "";
+		Coups = 0;
+		
+		//Debut du jeu
+		System.out.println(" << Dès que tu veux abandonner, il te suffit seulement de taper 'SOL' >>");
+		System.out.println("Le mot est composé de "+L+" caractère !");
+		while ((Coups <= Essai) && (MotProp.equals(MotMotus) == false) && (MotProp.equals("SOL") == false))
+		{
+			MotProp = Saisie.lire_String(J2+ " essaye donc de trouver le mot que "+J1+" a taper, c'est ton "+ Coups +" coup(s) sur "+ Essai + " essai(s) au total.");
+			while (MotProp.length() != L && MotProp.equals("SOL") == false)
+			{
+				MotProp = Saisie.lire_String(J2+" ta proposition doit contenir le même nombre de caractère que le mot à trouver, c'est à dire "+L+" caractères.");
+			}
+			System.out.println();
+			if (MotProp.equals("SOL")== true)
+			{
+			}
+			else if (MotProp.equals(MotMotus)== true)
+			{
+				System.out.println("et c'est gagné, le mot a trouver était bien : "+MotMotus+" !");
+			}
+			else 
+			{
+				
+				Lbis = MotProp.length();
+				
+				for ( Cpt = 0; Cpt < L ; Cpt++)
+				{
+					Prop[Cpt] = MotProp.substring(Cpt, Cpt+1);
+				}
+				
+				//Correspondance
+				System.out.println("Voici les lettres qui correspondent, tu en est a "+ Coups +" sur "+ Essai + " essais");
+				
+				for ( Cpt = 0; Cpt < Lbis ; Cpt++)
+				{
+					if (Prop[Cpt].equals(Motus[Cpt])== true)
+					{
+						Result[Cpt] = Prop[Cpt];
+					}
+					else Result[Cpt]= "_";
+				}
+				for ( Cpt = 0; Cpt < Lbis ; Cpt++)
+				{
+					System.out.print(Result[Cpt] + " ");
+				}
+				System.out.println();
+				
+			}
+			
+			Coups++;
+		}
+	
+	//Fin de jeu
+	if (MotProp.equals(MotMotus) == true)
+	{
+		System.out.println("Bien joué ! "+J2+" tu l'as trouver en "+Essai+" essais !");
+	}
+	else if (MotProp.equals("SOL") == true) 
+	{
+		System.out.println("Tu as essayé, mais le mot a trouver était "+ MotMotus + ", merci d'avoir jouer !");
+	}
+	else 
+	{
+		System.out.println("Perdu ! Le mot a trouver était " + MotMotus + ", merci d'avoir jouer !");
+	}
+
+}
+}
